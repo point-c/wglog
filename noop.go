@@ -4,13 +4,12 @@ import (
 	"golang.zx2c4.com/wireguard/device"
 )
 
-type Logger = device.Logger
-
 var noopFn = func(string, ...any) {}
 
 // Noop is a logger that does not output anything.
-func Noop() *Logger {
-	return &Logger{
+// The logger and both of its funcs are not nil.
+func Noop() *device.Logger {
+	return &device.Logger{
 		Verbosef: noopFn,
 		Errorf:   noopFn,
 	}
