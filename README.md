@@ -1,5 +1,5 @@
 # wglog
-[![Go Reference](https://pkg.go.dev/badge/github.com/point-c/wglog@v0.0.2.svg)](https://pkg.go.dev/github.com/point-c/wglog@v0.0.2)
+[![Go Reference](https://pkg.go.dev/badge/github.com/point-c/wglog@v0.0.2.svg)](https://godocs.io/github.com/point-c/wglog@v0.0.3)
 
 This is a set of extensions for `Wireguard-go`'s logger.
 

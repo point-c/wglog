@@ -6,8 +6,8 @@ import (
 	"log/slog"
 )
 
-// Slog creates a [Logger] instance that is backed by a specified [slog.Logger].
-// No args are passed to the slog logger, instead the message is created from the format string and args passed to the [Logger.Verbosef] and [Logger.Errorf] funcs.
+// Slog creates a [device.Logger] instance that is backed by a specified [slog.Logger].
+// No args are passed to the slog logger, instead the message is created from the format string and args passed to the [device.Logger].Verbosef and [device.Logger].Errorf funcs.
 // Verbose messages are logged at the Debug level, while errors are logged at the Error level.
 func Slog(logger *slog.Logger) *device.Logger {
 	logger = loggerElseDefault(logger, slog.Default())
