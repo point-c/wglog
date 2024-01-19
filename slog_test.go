@@ -35,7 +35,6 @@ type testSlogHandler struct {
 }
 
 func (t *testSlogHandler) Check() {
-	t.t.Helper()
 	if t.invalid != nil {
 		require.NotNil(t.t, t.invalid, "level(%s)", t.invalid.String())
 	}
@@ -44,7 +43,6 @@ func (t *testSlogHandler) Check() {
 }
 
 func (t *testSlogHandler) Handle(_ context.Context, record slog.Record) error {
-	t.t.Helper()
 	switch record.Level {
 	case slog.LevelDebug:
 		t.debug = true
@@ -56,6 +54,6 @@ func (t *testSlogHandler) Handle(_ context.Context, record slog.Record) error {
 	return nil
 }
 
-func (t *testSlogHandler) Enabled(context.Context, slog.Level) bool { t.t.Helper(); return true }
-func (t *testSlogHandler) WithAttrs([]slog.Attr) slog.Handler       { t.t.Helper(); return t }
-func (t *testSlogHandler) WithGroup(string) slog.Handler            { t.t.Helper(); return t }
+func (t *testSlogHandler) Enabled(context.Context, slog.Level) bool { return true }
+func (t *testSlogHandler) WithAttrs([]slog.Attr) slog.Handler       { return t }
+func (t *testSlogHandler) WithGroup(string) slog.Handler            { return t }

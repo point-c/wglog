@@ -4,7 +4,7 @@ import (
 	"golang.zx2c4.com/wireguard/device"
 )
 
-var noopFn = func(string, ...any) {}
+var noopFn FmtFn = func(string, ...any) {}
 
 // Noop is a logger that does not output anything.
 // The logger and both of its funcs are not nil.

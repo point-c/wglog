@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#375EAB">
+
+  <title>wglog - GoPages</title>
+
+<link type="text/css" rel="stylesheet" href="/wglog/lib/godoc/style.css">
+
+<script>window.initFuncs = [];</script>
+<script src="/wglog/lib/godoc/jquery.js" defer></script>
+
+
+
+
+<script>var goVersion = "go1.21.6";</script>
+<script src="/wglog/lib/godoc/godocs.js" defer></script>
+
+</head>
+<body>
+
+<div id='lowframe' style="position: fixed; bottom: 0; left: 0; height: 0; width: 100%; border-top: thin solid grey; background-color: white; overflow: auto;">
+...
+</div><!-- #lowframe -->
+
+<div id="topbar" class="wide"><div class="container">
+<div class="top-heading" id="heading-wide"><a href="/wglog/pkg/github.com/point-c/wglog/">GoPages | Auto-generated docs</a></div>
+<div class="top-heading" id="heading-narrow"><a href="/wglog/pkg/github.com/point-c/wglog/">GoPages</a></div>
+<a href="#" id="menu-button"><span id="menu-button-arrow">&#9661;</span></a>
+
+</div></div>
+
+
+
+<div id="page" class="wide">
+<div class="container">
+
+
+  <h1>
+    Package wglog
+    <span class="text-muted"></span>
+  </h1>
+
+
+
+
+
+
+
+<div id="nav"></div>
+
+
+<!--
+	Copyright 2009 The Go Authors. All rights reserved.
+	Use of this source code is governed by a BSD-style
+	license that can be found in the LICENSE file.
+-->
+<!--
+	Note: Static (i.e., not template-generated) href and id
+	attributes start with "pkg-" to make it impossible for
+	them to conflict with generated attributes (some of which
+	correspond to Go identifiers).
+-->
+
+	<script>
+	document.ANALYSIS_DATA = null;
+	document.CALLGRAPH = null;
+	</script>
+
+	
+		
+		<div id="short-nav">
+			<dl>
+			<dd><code>import "github.com/point-c/wglog"</code></dd>
+			</dl>
+			<dl>
+			<dd><a href="#pkg-overview" class="overviewLink">Overview</a></dd>
+			<dd><a href="#pkg-index" class="indexLink">Index</a></dd>
+			
+			
+			</dl>
+		</div>
+		<!-- The package's Name is printed as title by the top-level template -->
+		<div id="pkg-overview" class="toggleVisible">
+			<div class="collapsed">
+				<h2 class="toggleButton" title="Click to show Overview section">Overview ▹</h2>
+			</div>
+			<div class="expanded">
+				<h2 class="toggleButton" title="Click to hide Overview section">Overview ▾</h2>
+				
+				
+			</div>
+		</div>
+
+		<div id="pkg-index" class="toggleVisible">
+		<div class="collapsed">
+			<h2 class="toggleButton" title="Click to show Index section">Index ▹</h2>
+		</div>
+		<div class="expanded">
+			<h2 class="toggleButton" title="Click to hide Index section">Index ▾</h2>
+
+		<!-- Table of contents for API; must be named manual-nav to turn off auto nav. -->
+			<div id="manual-nav">
+			<dl>
+			
+			
+				<dd><a href="#pkg-variables">Variables</a></dd>
+			
+			
+				
+				<dd><a href="#Async">func Async(logger *device.Logger) *device.Logger</a></dd>
+			
+				
+				<dd><a href="#Multi">func Multi(loggers ...*device.Logger) *device.Logger</a></dd>
+			
+				
+				<dd><a href="#Noop">func Noop() *device.Logger</a></dd>
+			
+				
+				<dd><a href="#Slog">func Slog(logger *slog.Logger) *device.Logger</a></dd>
+			
+				
+				<dd><a href="#async">func async(fn FmtFn) (r func(string, ...any))</a></dd>
+			
+				
+				<dd><a href="#elseDefault">func elseDefault[T any](v, def T) T</a></dd>
+			
+				
+				<dd><a href="#multi">func multi(fns []FmtFn) func(string, ...any)</a></dd>
+			
+			
+				
+				<dd><a href="#FmtFn">type FmtFn</a></dd>
+				
+					
+					<dd>&nbsp; &nbsp; <a href="#collectFns">func collectFns(loggers []*device.Logger) (verbosef, errorf []FmtFn)</a></dd>
+				
+				
+			
+			
+			</dl>
+			</div><!-- #manual-nav -->
+
+		
+
+		
+			<h3>Package files</h3>
+			<p>
+			<span style="font-size:90%">
+			
+				<a href="https://github.com/point-c/wglog/blob/main/async.go">async.go</a>
+			
+				<a href="https://github.com/point-c/wglog/blob/main/multi.go">multi.go</a>
+			
+				<a href="https://github.com/point-c/wglog/blob/main/noop.go">noop.go</a>
+			
+				<a href="https://github.com/point-c/wglog/blob/main/slog.go">slog.go</a>
+			
+			</span>
+			</p>
+		
+		</div><!-- .expanded -->
+		</div><!-- #pkg-index -->
+
+		
+
+		
+		
+			<h2 id="pkg-variables">Variables</h2>
+			
+				<p>validNil is a set of <a href="https://pkg.go.dev/reflect#Kind">reflect.Kind</a> that will not panic on <a href="https://pkg.go.dev/reflect#Value.IsNil">reflect.Value.IsNil</a> if <a href="https://pkg.go.dev/reflect#Value">reflect.Value</a> is valid.
+
+				<pre>var <span id="validNil">validNil</span> = []<a href="https://pkg.go.dev/reflect/">reflect</a>.<a href="https://pkg.go.dev/reflect/#Kind">Kind</a>{<a href="https://pkg.go.dev/reflect/">reflect</a>.<a href="https://pkg.go.dev/reflect/#Chan">Chan</a>, <a href="https://pkg.go.dev/reflect/">reflect</a>.<a href="https://pkg.go.dev/reflect/#Func">Func</a>, <a href="https://pkg.go.dev/reflect/">reflect</a>.<a href="https://pkg.go.dev/reflect/#Interface">Interface</a>, <a href="https://pkg.go.dev/reflect/">reflect</a>.<a href="https://pkg.go.dev/reflect/#Map">Map</a>, <a href="https://pkg.go.dev/reflect/">reflect</a>.<a href="https://pkg.go.dev/reflect/#Pointer">Pointer</a>, <a href="https://pkg.go.dev/reflect/">reflect</a>.<a href="https://pkg.go.dev/reflect/#Slice">Slice</a>}</pre>
+			
+		
+		
+			
+			
+			<h2 id="Async">func <a href="https://github.com/point-c/wglog/blob/main/async.go#L7">Async</a>
+				<a class="permalink" href="#Async">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Async(logger *<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/">device</a>.<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/#Logger">Logger</a>) *<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/">device</a>.<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/#Logger">Logger</a></pre>
+			<p>Async will call the underlying logger methods in a goroutine.
+If a field in logger is nil, it will not spawn a goroutine.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Multi">func <a href="https://github.com/point-c/wglog/blob/main/multi.go#L9">Multi</a>
+				<a class="permalink" href="#Multi">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Multi(loggers ...*<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/">device</a>.<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/#Logger">Logger</a>) *<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/">device</a>.<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/#Logger">Logger</a></pre>
+			<p>Multi will emit a logged message on all given loggers.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Noop">func <a href="https://github.com/point-c/wglog/blob/main/noop.go#L11">Noop</a>
+				<a class="permalink" href="#Noop">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Noop() *<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/">device</a>.<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/#Logger">Logger</a></pre>
+			<p>Noop is a logger that does not output anything.
+The logger and both of its funcs are not nil.
+
+			
+			
+
+		
+			
+			
+			<h2 id="Slog">func <a href="https://github.com/point-c/wglog/blob/main/slog.go#L14">Slog</a>
+				<a class="permalink" href="#Slog">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func Slog(logger *<a href="https://pkg.go.dev/log/slog/">slog</a>.<a href="https://pkg.go.dev/log/slog/#Logger">Logger</a>) *<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/">device</a>.<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/#Logger">Logger</a></pre>
+			<p>Slog creates a <a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device#Logger">device.Logger</a> instance that is backed by a specified <a href="https://pkg.go.dev/log/slog#Logger">slog.Logger</a>.
+No args are passed to the slog logger, instead the message is created from the format string and args passed to the <a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device#Logger">device.Logger</a>.Verbosef and <a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device#Logger">device.Logger</a>.Errorf funcs.
+Verbose messages are logged at the Debug level, while errors are logged at the Error level.
+
+			
+			
+
+		
+			
+			
+			<h2 id="async">func <a href="https://github.com/point-c/wglog/blob/main/async.go#L14">async</a>
+				<a class="permalink" href="#async">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func async(fn <a href="#FmtFn">FmtFn</a>) (r func(<a href="https://pkg.go.dev/builtin/#string">string</a>, ...<a href="https://pkg.go.dev/builtin/#any">any</a>))</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="elseDefault">func <a href="https://github.com/point-c/wglog/blob/main/slog.go#L25">elseDefault</a>
+				<a class="permalink" href="#elseDefault">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func elseDefault[T <a href="https://pkg.go.dev/builtin/#any">any</a>](v, def T) T</pre>
+			
+			
+			
+
+		
+			
+			
+			<h2 id="multi">func <a href="https://github.com/point-c/wglog/blob/main/multi.go#L22">multi</a>
+				<a class="permalink" href="#multi">&#xb6;</a>
+				
+				
+			</h2>
+			<pre>func multi(fns []<a href="#FmtFn">FmtFn</a>) func(<a href="https://pkg.go.dev/builtin/#string">string</a>, ...<a href="https://pkg.go.dev/builtin/#any">any</a>)</pre>
+			
+			
+			
+
+		
+		
+			
+			
+			<h2 id="FmtFn">type <a href="https://github.com/point-c/wglog/blob/main/multi.go#L6">FmtFn</a>
+				<a class="permalink" href="#FmtFn">&#xb6;</a>
+				
+				
+			</h2>
+			<p>FmtFn is a function capable of outputting a printf style string.
+
+			<pre>type FmtFn func(<a href="https://pkg.go.dev/builtin/#string">string</a>, ...<a href="https://pkg.go.dev/builtin/#any">any</a>)</pre>
+
+			
+
+			
+				
+				<pre>var <span id="noopFn">noopFn</span> <a href="#FmtFn">FmtFn</a> = func(<a href="https://pkg.go.dev/builtin/#string">string</a>, ...<a href="https://pkg.go.dev/builtin/#any">any</a>) {}</pre>
+			
+
+			
+			
+			
+
+			
+				
+				<h3 id="collectFns">func <a href="https://github.com/point-c/wglog/blob/main/multi.go#L14">collectFns</a>
+					<a class="permalink" href="#collectFns">&#xb6;</a>
+					
+					
+				</h3>
+				<pre>func collectFns(loggers []*<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/">device</a>.<a href="https://pkg.go.dev/golang.zx2c4.com/wireguard/device/#Logger">Logger</a>) (verbosef, errorf []<a href="#FmtFn">FmtFn</a>)</pre>
+				
+				
+				
+			
+
+			
+		
+	
+
+	
+
+
+
+
+
+
+
+<div id="footer">
+Build version go1.21.6.<br>
+</div>
+
+</div><!-- .container -->
+</div><!-- #page -->
+</body>
+</html>

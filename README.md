@@ -1,7 +1,14 @@
 # wglog
-[![Go Reference](https://pkg.go.dev/badge/github.com/point-c/wglog@v0.0.2.svg)](https://godocs.io/github.com/point-c/wglog@v0.0.3)
 
 This is a set of extensions for `Wireguard-go`'s logger.
+
+## Installation
+
+To use wglog in your Go project, install it using `go get`:
+
+```bash
+go get github.com/point-c/wglog
+```
 
 ## Loggers
 
@@ -14,3 +21,19 @@ This is a set of extensions for `Wireguard-go`'s logger.
       - `slog.LevelError`
 - `multi`: Emits log messages on multiple loggers. 
 - `async`: Runs the logger funcs in a goroutine.
+
+## Testing
+
+The package includes tests that demonstrate its functionality. Use Go's testing tools to run the tests:
+
+```bash
+go test
+```
+
+## Godocs
+
+To regenerate godocs:
+
+```bash
+go generate -tags docs ./...
+```

@@ -21,17 +21,16 @@ func TestMulti(t *testing.T) {
 
 func getMultipleLoggers(t *testing.T, n int) (loggers []*device.Logger, checkAllCalled func()) {
 	t.Helper()
-	checkAllCalled = func() { t.Helper() }
+	checkAllCalled = func() {}
 	for i := 0; i < n; i++ {
 		var v, e bool
 		l := device.Logger{
-			Verbosef: func(string, ...any) { t.Helper(); v = true },
-			Errorf:   func(string, ...any) { t.Helper(); e = true },
+			Verbosef: func(string, ...any) { v = true },
+			Errorf:   func(string, ...any) { e = true },
 		}
 		loggers = append(loggers, &l)
 		fn := checkAllCalled
 		checkAllCalled = func() {
-			t.Helper()
 			fn()
 			require.True(t, v)
 			require.True(t, e)
