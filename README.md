@@ -1,6 +1,7 @@
 # wglog
 
 [![Go Reference](https://img.shields.io/badge/godoc-reference-%23007d9c.svg)](https://point-c.github.io/wglog)
+[![Go Coverage](https://github.com/point-c/wglog/wiki/coverage.svg)](https://raw.githack.com/wiki/point-c/wglog/coverage.html)
 
 This is a set of extensions for `Wireguard-go`'s logger.
 
